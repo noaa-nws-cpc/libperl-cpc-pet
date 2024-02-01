@@ -1,4 +1,6 @@
-CPC-PET
+=pod
+
+=head1 CPC-PET
 
 The README is used to introduce the module and provide instructions on
 how to install the module, any machine dependencies it may have (for
@@ -12,7 +14,7 @@ to provide version information here so that people can decide whether
 fixes for the module are worth downloading.
 
 
-INSTALLATION
+=head1 INSTALLATION
 
 To install this module, run the following commands:
 
@@ -21,7 +23,7 @@ To install this module, run the following commands:
 	make test
 	make install
 
-SUPPORT AND DOCUMENTATION
+=head1 SUPPORT AND DOCUMENTATION
 
 After installing, you can find documentation for this module with the
 perldoc command.
@@ -40,11 +42,13 @@ You can also look for information at:
         https://metacpan.org/release/CPC-PET
 
 
-LICENSE AND COPYRIGHT
+=head1 LICENSE AND COPYRIGHT
 
 This software is Copyright (c) 2024 by Adam Allgood.
 
 This is free software, licensed under:
 
   The Artistic License 2.0 (GPL Compatible)
+
+=cut
 
