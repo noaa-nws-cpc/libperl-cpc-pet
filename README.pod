@@ -2,7 +2,7 @@
 
 =head1 README for the CPC::PET module
 
-CPC::PET - Calculate potential evapotranspiration (PET) with methodologies used at the L<Climate Prediction Center (CPC)|https://www.cpc.ncep.noaa.gov>
+CPC::PET - Calculate potential evapotranspiration (PET) with methods used at the L<Climate Prediction Center (CPC)|https://www.cpc.ncep.noaa.gov>
 
 This README file provides instructions on how to install the module on your system. For documentation on using the CPC::PET module itself, see L<CPC::PET|https://github.com/noaa-nws-cpc/libperl-cpc-pet/blob/main/docs/CPC/PET.pod>.
 
