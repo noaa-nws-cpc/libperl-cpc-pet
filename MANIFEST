@@ -1,8 +1,10 @@
 Changes
+docs/CPC/PET.pod
 lib/CPC/PET.pm
+LICENSE.pod
 Makefile.PL
 MANIFEST			This list of files
-README
+README.pod
 t/00-load.t
 t/manifest.t
 t/pod-coverage.t
