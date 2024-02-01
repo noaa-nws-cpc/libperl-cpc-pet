@@ -9,7 +9,7 @@ use Scalar::Util qw(looks_like_number reftype);
 
 =head1 NAME
 
-CPC::PET - Calculate potential evapotranspiration (PET)
+CPC::PET - Calculate potential evapotranspiration (PET) with methods used at the L<Climate Predicton Center|https://www.cpc.ncep.noaa.gov>.
 
 =head1 VERSION
 
@@ -19,23 +19,25 @@ Version 0.50
 
 our $VERSION = '0.50';
 
-
 =head1 SYNOPSIS
 
-This module provides exportable functions to calculate potential evapotranspiration using different methods.
+This module provides exportable functions to calculate potential evapotranspiration using different methods. Currently, the only available method is the Thornthwaite Equation, but other methods can be added in the future.
 
-    # Export functions to calculate the PET using the Thornthwaite Equation
+=head3 Export the functions to calculate the PET using the Thornthwaite Equation
+
     use CPC::PET qw(get_thornthwaite_pet get_thornthwaite_tei);
 
 =head1 EXPORT
 
+The following functions can be exported from CPC::PET into your namespace:
+
 =over 4
 
-=item * get_thornthwaite_pet
+=item * C<< get_thornthwaite_pet >>
 
 Calculate the PET using the Thornthwaite Equation
 
-=item * get_thornthwaite_tei
+=item * C<< get_thornthwaite_tei >>
 
 Calculate the TEI parameter used in the Thornthwaite Equation from monthly average temperatures
 
