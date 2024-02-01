@@ -118,7 +118,7 @@ You can find documentation for this module with the perldoc command.
 
 =head1 REFERENCES
 
-Thornthwaite, C. W., 1948: An approach toward a rational classification of climate. I<Geogr. Rev>, B<38> , 55–94.
+Thornthwaite, C. W., 1948: An approach toward a rational classification of climate. I<Geographical Review>, B<38> 55-94.
 
 =head1 LICENSE
 
@@ -153,7 +153,6 @@ this deed makes no warranties about the work, and disclaims liability for
 all uses of the work, to the fullest extent permitted by applicable law.
 When using or citing the work, you should not imply endorsement by the
 author or the affirmer.
-
 
 =cut
 
