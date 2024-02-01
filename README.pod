@@ -34,7 +34,7 @@ perldoc command.
 
 =head1 AUTHOR
 
-Adam Allgood (Email: L<adam.allgood@noaa.gov|mailto:adam.allgood@noaa.gov>)
+Adam Allgood C<< <adam.allgood at noaa.gov> >>
 
 =over 4
 

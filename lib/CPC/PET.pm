@@ -285,11 +285,17 @@ sub get_thornthwaite_tei {
 
 Adam Allgood, C<< <adam.allgood at noaa.gov> >>
 
-=head1 BUGS
+=over 4
 
-Please report any bugs or feature requests to C<bug-cpc-pet at rt.cpan.org>, or through
-the web interface at L<https://rt.cpan.org/NoAuth/ReportBug.html?Queue=CPC-PET>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
+Meteorologist
+
+L<Climate Prediction Center (CPC)|https://www.cpc.ncep.noaa.gov>
+
+L<National Weather Service (NWS)|https://www.weather.gov>
+
+=back
+
+=head1 BUGS
 
 =head1 SUPPORT
 
@@ -297,37 +303,43 @@ You can find documentation for this module with the perldoc command.
 
     perldoc CPC::PET
 
+=head1 REFERENCES
 
-You can also look for information at:
+Thornthwaite, C. W., 1948: An approach toward a rational classification of climate. I<Geogr. Rev>, B<38> , 55–94.
 
-=over 4
+=head1 LICENSE
 
-=item * RT: CPAN's request tracker (report bugs here)
+As a work of the United States Government, this project is in the
+public domain within the United States.
 
-L<https://rt.cpan.org/NoAuth/Bugs.html?Dist=CPC-PET>
+Additionally, we waive copyright and related rights in the work
+worldwide through the CC0 1.0 Universal public domain dedication.
 
-=item * CPAN Ratings
+=head2 CC0 1.0 Universal Summary
 
-L<https://cpanratings.perl.org/d/CPC-PET>
+This is a human-readable summary of the L<Legal Code (read the full text)|https://creativecommons.org/publicdomain/zero/1.0/legalcode>.
 
-=item * Search CPAN
+=head3 No Copyright
 
-L<https://metacpan.org/release/CPC-PET>
+The person who associated a work with this deed has dedicated the work to
+the public domain by waiving all of his or her rights to the work worldwide
+under copyright law, including all related and neighboring rights, to the
+extent allowed by law.
 
-=back
+You can copy, modify, distribute and perform the work, even for commercial
+purposes, all without asking permission.
 
+=head3 Other Information
 
-=head1 ACKNOWLEDGEMENTS
+In no way are the patent or trademark rights of any person affected by CC0,
+nor are the rights that other persons may have in the work or in how the
+work is used, such as publicity or privacy rights.
 
-
-=head1 LICENSE AND COPYRIGHT
-
-This software is Copyright (c) 2024 by Adam Allgood.
-
-This is free software, licensed under:
-
-  The Artistic License 2.0 (GPL Compatible)
-
+Unless expressly stated otherwise, the person who associated a work with
+this deed makes no warranties about the work, and disclaims liability for
+all uses of the work, to the fullest extent permitted by applicable law.
+When using or citing the work, you should not imply endorsement by the
+author or the affirmer.
 
 =cut
 
