@@ -1,0 +1,159 @@
+=head1 NAME
+
+CPC::PET - Calculate potential evapotranspiration (PET)
+
+=head1 VERSION
+
+Version 0.50
+
+
+=cut
+
+=head1 SYNOPSIS
+
+This module provides exportable functions to calculate potential evapotranspiration using different methods.
+
+    # Export functions to calculate the PET using the Thornthwaite Equation
+    use CPC::PET qw(get_thornthwaite_pet get_thornthwaite_tei);
+
+=head1 EXPORT
+
+=over 4
+
+=item * get_thornthwaite_pet
+
+Calculate the PET using the Thornthwaite Equation
+
+=item * get_thornthwaite_tei
+
+Calculate the TEI parameter used in the Thornthwaite Equation from monthly average temperatures
+
+=back
+
+=head1 FUNCTIONS
+
+=head2 get_pet_thornthwaite
+
+Calculate the potential evapotranspiration using the Thornthwaite Equation. Requires five arguments:
+
+=over 4
+
+=item 1
+
+YDAY - the day of the year (1 - 366). When calculating for a range of days, use the midpoint's date
+
+=item 2
+
+NDAYS - number of days in the period
+
+=item 3
+
+LAT - the latitude(s) of the target location(s) (in degrees)
+
+=item 4
+
+TEMP - temperature(s) (deg C)
+
+=item 5
+
+TEI - the Thornthwaite climatological "temperature efficiency index" for the target location(s) based on monthly average temperatures
+
+=back
+
+The LAT, TEMP, and TEI arguments can be either numeric scalars to calculate the PET for a single location, or array refs of matching dimensions to calculate the PET for multiple locations. A separate function called get_thornthwaite_tei is provided in this package to calculate the TEI from monthly average temperature data.
+
+Usage:
+
+    my $pet_scalar = get_thornthwaite_pet($yday,$ndays,$lat,$temp,$tei);    # For a single location
+    my $pet_ref    = get_thornthwaite_pet($yday$ndays,\@lat,\@temp,\@tei);  # For multiple locations (all for the same time period)
+    my @pet_array  = @{$pet_ref};
+
+Limitations or known bugs:
+
+=over 4
+
+=item 1
+
+This function currently only supports northern hemisphere locations
+
+=back
+
+
+=cut
+
+=head2 get_thornthwaite_tei
+
+Calculate the climatological "temperature efficiency index" parameter used in the Thornthwaite Equation for potential evapotranspiration. Requires 12 arguments: the monthly average temperatures from January through December (month order does not matter). These can either be 12 scalars to compute the TEI for a single location, or 12 array refs of equal dimensions to compute the TEI for a list of locations. Non-numeric values will result in a TEI value set to NaN.
+
+Usage:
+
+    my $tei_scalar = get_thornthwaite_tei($jan,$feb,$mar,$apr,$may,$jun,$jul,$aug,$sep,$oct,$nov,$dec);             # For a single location
+    my $tei_ref    = get_thornthwaite_tei(\@jan,\@feb,\@mar,\@apr,\@may,\@jun,\@jul,\@aug,\@sep,\@oct,\@nov,\@dec); # For multiple locations
+    my @tei_array  = @{$tei_ref};
+
+
+=cut
+
+=head1 AUTHOR
+
+Adam Allgood, C<< <adam.allgood at noaa.gov> >>
+
+=over 4
+
+Meteorologist
+
+L<Climate Prediction Center (CPC)|https://www.cpc.ncep.noaa.gov>
+
+L<National Weather Service (NWS)|https://www.weather.gov>
+
+=back
+
+=head1 BUGS
+
+=head1 SUPPORT
+
+You can find documentation for this module with the perldoc command.
+
+    perldoc CPC::PET
+
+=head1 REFERENCES
+
+Thornthwaite, C. W., 1948: An approach toward a rational classification of climate. I<Geogr. Rev>, B<38> , 55–94.
+
+=head1 LICENSE
+
+As a work of the United States Government, this project is in the
+public domain within the United States.
+
+Additionally, we waive copyright and related rights in the work
+worldwide through the CC0 1.0 Universal public domain dedication.
+
+=head2 CC0 1.0 Universal Summary
+
+This is a human-readable summary of the L<Legal Code (read the full text)|https://creativecommons.org/publicdomain/zero/1.0/legalcode>.
+
+=head3 No Copyright
+
+The person who associated a work with this deed has dedicated the work to
+the public domain by waiving all of his or her rights to the work worldwide
+under copyright law, including all related and neighboring rights, to the
+extent allowed by law.
+
+You can copy, modify, distribute and perform the work, even for commercial
+purposes, all without asking permission.
+
+=head3 Other Information
+
+In no way are the patent or trademark rights of any person affected by CC0,
+nor are the rights that other persons may have in the work or in how the
+work is used, such as publicity or privacy rights.
+
+Unless expressly stated otherwise, the person who associated a work with
+this deed makes no warranties about the work, and disclaims liability for
+all uses of the work, to the fullest extent permitted by applicable law.
+When using or citing the work, you should not imply endorsement by the
+author or the affirmer.
+
+
+=cut
+
