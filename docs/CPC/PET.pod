@@ -65,13 +65,13 @@ TEI - the Thornthwaite climatological "temperature efficiency index" for the tar
 
 The LAT, TEMP, and TEI arguments can be either numeric scalars to calculate the PET for a single location, or array refs of matching dimensions to calculate the PET for multiple locations. A separate function called get_thornthwaite_tei is provided in this package to calculate the TEI from monthly average temperature data.
 
-Usage:
+B<Usage:>
 
     my $pet_scalar = get_thornthwaite_pet($yday,$ndays,$lat,$temp,$tei);    # For a single location
     my $pet_ref    = get_thornthwaite_pet($yday$ndays,\@lat,\@temp,\@tei);  # For multiple locations (all for the same time period)
     my @pet_array  = @{$pet_ref};
 
-Limitations or known bugs:
+B<Limitations or known bugs:>
 
 =over 4
 
@@ -88,7 +88,7 @@ This function currently only supports northern hemisphere locations
 
 Calculate the climatological "temperature efficiency index" parameter used in the Thornthwaite Equation for potential evapotranspiration. Requires 12 arguments: the monthly average temperatures from January through December (month order does not matter). These can either be 12 scalars to compute the TEI for a single location, or 12 array refs of equal dimensions to compute the TEI for a list of locations. Non-numeric values will result in a TEI value set to NaN.
 
-Usage:
+B<Usage:>
 
     my $tei_scalar = get_thornthwaite_tei($jan,$feb,$mar,$apr,$may,$jun,$jul,$aug,$sep,$oct,$nov,$dec);             # For a single location
     my $tei_ref    = get_thornthwaite_tei(\@jan,\@feb,\@mar,\@apr,\@may,\@jun,\@jul,\@aug,\@sep,\@oct,\@nov,\@dec); # For multiple locations
