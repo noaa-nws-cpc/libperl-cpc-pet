@@ -121,11 +121,13 @@ sub get_thornthwaite_pet {
     ) { croak "$function: NDAYS arg must be a positive integer"; }
 
     my $nvals;
+    my $type;
 
     if(defined reftype($lat)) {  # LAT, TEMP, and TEI are assumed to be array refs of equal dimensions - validate
 
         if(reftype($lat) eq 'ARRAY' and reftype($temperature) eq 'ARRAY' and reftype($tei) eq 'ARRAY') {
             $nvals = scalar(@{$lat});
+            $type  = "ARRAY";
             unless(defined reftype($temperature) and defined reftype($tei))         { croak "$function: Invalid argument - expected a ref arg but the arg is not a ref";              }
             unless(reftype($temperature) eq 'ARRAY' and reftype($tei) eq 'ARRAY')   { croak "$function: Invalid argument - expected an ARRAY ref but the arg is not an ARRAY ref";    }
             unless(scalar(@{$temperature}) == $nvals and scalar(@{$tei}) == $nvals) { croak "$function: Invalid argument - array dimension mismatch between LAT, TEMP, and TEI args"; }
@@ -135,6 +137,7 @@ sub get_thornthwaite_pet {
     }
     else {  # LAT, TEMP, and TEI args are assumed to be scalars - convert to array refs with one element each
         $nvals = 1;
+        $type  = "SCALAR";
         if(defined reftype($temperature) or defined reftype($tei)) { croak "$function: Invalid argument - expected a scalar and found a ref"; }
         my @lat         = ($lat);         $lat         = \@lat;
         my @temperature = ($temperature); $temperature = \@temperature;
@@ -203,7 +206,8 @@ sub get_thornthwaite_pet {
 
     }  # :LOC
 
-    return $pet;
+    if($type eq "SCALAR") { return $$pet[0]; }
+    else                  { return $pet;     }
 }
 
 =head2 get_thornthwaite_tei
@@ -232,12 +236,14 @@ sub get_thornthwaite_tei {
     my @monthly_temperatures;
     my $testmon = $args[0]; # Use first arg to determine whether we are working with scalars or array refs
     my $nvals;
+    my $type;
 
     if(defined reftype($testmon)) {  # Args assumed to be all array refs of equal dimensions - validate this
 
         if(reftype($testmon) eq 'ARRAY') {
             $monthly_temperatures[0] = $testmon;
             $nvals                   = scalar(@{$testmon});
+            $type                    = "ARRAY";
 
             for(my $mon=1; $mon<12; $mon++) {
                 unless(defined reftype($args[$mon]))     { croak "$function: Invalid argument - expected a ref arg but the arg is not a ref"; }
@@ -252,6 +258,7 @@ sub get_thornthwaite_tei {
     }
     else {  # Args assumed to be all numeric scalars - validate this
         $nvals = 1;
+        $type  = "SCALAR";
 
         for(my $mon=0; $mon<12; $mon++) {
             unless(looks_like_number($args[$mon])) { croak "$function: Invalid argument - expected a numeric scalar but the argument is not numeric"; }
@@ -279,8 +286,8 @@ sub get_thornthwaite_tei {
 
     # --- Return the TEI ---
 
-    if($nvals == 1) { return $$tei[0]; }
-    else            { return $tei;     }
+    if($type eq "SCALAR") { return $$tei[0]; }
+    else                  { return $tei;     }
 }
 
 =head1 AUTHOR
