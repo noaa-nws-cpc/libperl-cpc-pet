@@ -5,6 +5,7 @@ use strict;
 use warnings;
 use Carp qw(carp croak cluck confess);
 use List::Util qw(all);
+use Math::Trig;
 use Scalar::Util qw(looks_like_number reftype);
 
 =head1 NAME
@@ -277,8 +278,8 @@ sub get_thornthwaite_tei {
 
         for(my $mon=0; $mon<12; $mon++) {
             my $temp   = ${$monthly_temperatures[$mon]}[$i];
-            if(looks_like_number($temp) { $temp = $temp > 0 ? $temp : 0; }
-            else                        { $temp = 'NaN'; }
+            if(looks_like_number($temp)) { $temp = $temp > 0 ? $temp : 0; }
+            else                         { $temp = 'NaN'; }
             $$tei[$i] += ($temp/5)**1.514;
         }
 
