@@ -48,7 +48,8 @@ Calculate the TEI parameter used in the Thornthwaite Equation from monthly avera
 
 =head2 get_pet_thornthwaite
 
-Calculate the potential evapotranspiration using the Thornthwaite Equation. Requires five arguments:
+Calculate the potential evapotranspiration in millimeters using the Thornthwaite Equation. 
+This function requires five arguments:
 
 =over 4
 
@@ -196,13 +197,13 @@ sub get_thornthwaite_pet {
             # --- Apply the Thornthwaite formula ---
 
             my $pet_gross         = 16*((10*$$temperature[$i])/($$tei[$i]))**$alpha;
-            $$pet[$i]             = ($pet_gross*($daylength/12)*($ndays/30))/25.4;  # Converted to inches
+            $$pet[$i]             = ($pet_gross*($daylength/12)*($ndays/30));  # Units are millimeters
         }
         else {
 
             # --- Apply the formula in Huang et al. 1995 ---
 
-            $$pet[$i]             = ((-415.85 + 32.25*$$temperature[$i] - 0.43*($$temperature[$i]**2))*($ndays/30))/25.4;  # Converted to inches
+            $$pet[$i]             = ((-415.85 + 32.25*$$temperature[$i] - 0.43*($$temperature[$i]**2))*($ndays/30));  # Units are millimeters
         }
 
     }  # :LOC
